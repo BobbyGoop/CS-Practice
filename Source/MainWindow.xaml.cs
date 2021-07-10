@@ -71,12 +71,14 @@ namespace FirstWpfApp
 
         private void TButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             //  Разница проявляется в случае полиморфизма. Если вы работаете с экземпляром класса-наследника
             //  через его родительский класс, то в случае, если вы будете вызывать переопределенный виртуальный 
             //  метод (override), то будет вызвана его реализация из наследника, а если перекрытый (new), 
             //  то будет вызван метод базового класса. Нагляднее будет увидеть на примере:
             //Human exmp = new Human();
 
+            
             Human example = new Student() { Name = "example" }; // UPCASTING
             Student example2 = (Student)example; // DOWNCASTING, не работает конструктор потому что это ссылка
             //example2.Name = "example2";
@@ -86,9 +88,11 @@ namespace FirstWpfApp
             output.Text += "\nПреобразование типов: DOWNCASTING: Student example2 = (Student)example \n";
             output.Text += example2.First() + "\n";
             output.Text += example2.Second();
+              output.Text += "\n\n " + Student.SObjects.Count + " " + Teacher.TObjects.Count + "\n";  
+            */
 
 
-            output.Text += "\n\n " + Student.SObjects.Count + " " + Teacher.TObjects.Count + "\n";      
+
             foreach (Teacher item in Teacher.TObjects)
             {
                 output.Text += $"Должность: {item.position}, " + item.Surname + " " + item.Name + " " + item.FName + " " +

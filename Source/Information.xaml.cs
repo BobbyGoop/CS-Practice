@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Project;
+using ClassLibrary;
 
 namespace WPfApplication
 {
@@ -16,26 +16,33 @@ namespace WPfApplication
 
         private void enter_btn_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (st_check.IsChecked == true)
+            try
             {
-                new Student
-                (fam_box.Text, 
-                name_box.Text, 
-                fname_box.Text, 
-                (System.DateTime)DatePicker.SelectedDate);
-                ListbOX.ItemsSource = Student.SObjects;
+                if (st_check.IsChecked == true)
+                {
+                    new Student
+                    (fam_box.Text,
+                    name_box.Text,
+                    fname_box.Text,
+                    (System.DateTime)DatePicker.SelectedDate);
+                    ListbOX.ItemsSource = Student.SObjects;
+                }
+                else if (tchr_check.IsChecked == true)
+                {
+                    new Teacher
+                    (fam_box.Text,
+                    name_box.Text,
+                    fname_box.Text,
+                    (System.DateTime)DatePicker.SelectedDate);
+
+                    ListbOX.ItemsSource = Teacher.TObjects;
+                }
             }
-            else if (tchr_check.IsChecked == true)
+            catch (System.InvalidOperationException)
             {
-                new Teacher
-                (fam_box.Text,
-                name_box.Text,
-                fname_box.Text,
-                (System.DateTime)DatePicker.SelectedDate);
-       
-                ListbOX.ItemsSource = Teacher.TObjects;
+                MessageBox.Show("Одно или несколько полей пустые", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+         
         }
 
         private void clear_click(object sender, RoutedEventArgs e)
