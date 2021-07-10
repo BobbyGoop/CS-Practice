@@ -47,7 +47,7 @@ namespace WPfApplication
 
         private void clear_click(object sender, RoutedEventArgs e)
         {
-           //Дописать
+            // ....
         }
     }
 }
